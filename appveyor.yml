@@ -18,6 +18,8 @@ platform: x64
 
 install:
   - choco install make
+  - cd C:\go\pkg\tool
+  - mkdir linux_amd64
   - cd "%GOPATH%\src\github.com\influxdata\jaeger-influxdb"
   - git config --system core.longpaths true
   - go version
@@ -26,8 +28,9 @@ build_script:
   - set GOOS=linux
   - set CGO_ENABLED=0
   - set GO111MODULE=on
+  - set GOTOOLDIR=C:\go\pkg\tool\linux_amd64
   - go env
-  - go tool dist install -v pkg/runtime
+  - go tool dist install -v pkg/tool/linux_amd64
   - go install -v -a std
   - make build
 
