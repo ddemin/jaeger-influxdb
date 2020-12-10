@@ -29,9 +29,9 @@ build_script:
   - set CGO_ENABLED=0
   - set GO111MODULE=on
   - set GOTOOLDIR=C:\go\pkg\tool\linux_amd64
-  - go env
-  - go tool dist install -v pkg/tool/linux_amd64
+  - go tool dist install -v C:\go\pkg\tool\linux_amd64
   - go install -v -a std
+  - go env
   - make build
 
 artifacts:
