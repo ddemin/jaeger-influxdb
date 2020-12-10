@@ -24,15 +24,10 @@ install:
   - go env
 
 build_script:
-  - make deps
   - set GOARCH=amd64
   - set GOOS=linux
-  - make telegraf
-
-test_script:
-  - make check
-  - make test
+  - make build
 
 artifacts:
-  - path: jaeger-influxdb
-    name: jaeger influxdb plugin
+  - path: '**\jaeger-influxdb-linux'
+    name: jaeger plugin for influxdb
