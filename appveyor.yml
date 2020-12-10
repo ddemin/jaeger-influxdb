@@ -24,9 +24,8 @@ install:
   - go env
 
 build_script:
-  - set GOARCH=amd64
   - set GOOS=linux
-  - make build
+  - GO111MODULE=on go run -o ./cmd/jaeger-influxdb-linux ./cmd
 
 artifacts:
   - path: '**\jaeger-influxdb-linux'
