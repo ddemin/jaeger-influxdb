@@ -21,13 +21,14 @@ install:
   - cd "%GOPATH%\src\github.com\influxdata\jaeger-influxdb"
   - git config --system core.longpaths true
   - go version
-  - go env
 
 build_script:
   - set GOOS=linux
+  - set CGO_ENABLED=0
   - set GO111MODULE=on
-  - go run ./cmd/jaeger-influxdb
+  - go env
+  - make build
 
 artifacts:
-  - path: '**\jaeger-influxdb'
+  - path: '**\jaeger-influxdb-linux'
     name: jaeger plugin for influxdb
