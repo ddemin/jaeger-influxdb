@@ -27,6 +27,8 @@ build_script:
   - set CGO_ENABLED=0
   - set GO111MODULE=on
   - go env
+  - go tool dist install -v pkg/runtime
+  - go install -v -a std
   - make build
 
 artifacts:
