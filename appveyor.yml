@@ -25,7 +25,8 @@ install:
 
 build_script:
   - set GOOS=linux
-  - GO111MODULE=on go run -o ./cmd/jaeger-influxdb-linux ./cmd
+  - set GO111MODULE=on
+  - go run -o ./cmd/jaeger-influxdb-linux ./cmd
 
 artifacts:
   - path: '**\jaeger-influxdb-linux'
